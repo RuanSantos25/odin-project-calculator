@@ -46,3 +46,14 @@ numericButtons.forEach((button) => {
         displayNumbers.textContent += event.target.textContent;
     });
 });
+
+const operatorButtons = document.querySelectorAll("#button-operator");
+operatorButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+        if (operator === undefined) {
+            number1 = parseInt(displayNumbers.textContent);
+            displayNumbers.textContent = "";
+            operator = event.target.textContent;
+        }
+    });
+});
