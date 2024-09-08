@@ -128,5 +128,13 @@ document.addEventListener("keydown", (event) => {
             }
             break;
         }
+        case "Enter": {
+            if(displayNumbers.textContent === ""
+                || number1 === undefined
+                || operator === undefined
+            ) return;
+            number2 = parseInt(displayNumbers.textContent);
+            operate(operator, number1, number2);
+        }
     }
-})
+});
