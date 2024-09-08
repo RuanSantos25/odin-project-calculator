@@ -25,6 +25,10 @@ function multiply(num1, num2) {
 }
 
 function divide(num1, num2) {
+    if (num2 === 0) {
+        displayNumbers.textContent = "ERR0R ☠️";
+        return;
+    }
     const result = num1 / num2;
     displayNumbers.textContent = result;
     number1 = result;
