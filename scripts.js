@@ -57,3 +57,13 @@ operatorButtons.forEach((button) => {
         }
     });
 });
+
+const equalsButton = document.querySelector("#button-equals");
+equalsButton.addEventListener("click", () => {
+    if(displayNumbers.textContent === ""
+        || number1 === undefined
+        || operator === undefined
+    ) return;
+    number2 = parseInt(displayNumbers.textContent);
+    operate(operator, number1, number2);
+});
