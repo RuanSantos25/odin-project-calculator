@@ -56,51 +56,71 @@ function operate(operator, num1, num2) {
     }
 }
 
-const numericButtons = document.querySelectorAll("#button-number");
-numericButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-        displayNumbers.textContent += event.target.textContent;
-    });
-});
+function displayNum(num) {
+    displayNumbers.textContent += num;
+}
 
-const operatorButtons = document.querySelectorAll("#button-operator");
-operatorButtons.forEach((button) => {
-    button.addEventListener("click", (event) => {
-        if (operator === undefined) {
-            number1 = parseInt(displayNumbers.textContent);
-            if (isNaN(number1)) return;
-            displayNumbers.textContent = "";
-            operator = event.target.textContent;
-        }
-    });
-});
+function checkOperator(sign) {
+    if (operator === undefined) {
+        number1 = parseInt(displayNumbers.textContent);
+        if (isNaN(number1)) return;
+        displayNumbers.textContent = "";
+        operator = sign;
+    }
+}
 
-const equalsButton = document.querySelector("#button-equals");
-equalsButton.addEventListener("click", () => {
+function checkResult() {
     if(displayNumbers.textContent === ""
         || number1 === undefined
         || operator === undefined
     ) return;
     number2 = parseInt(displayNumbers.textContent);
     operate(operator, number1, number2);
-});
+}
 
-const clearButton = document.querySelector("#button-clear");
-clearButton.addEventListener("click", (event) => {
+function clearCalculator() {
     number1 = undefined;
     operator = undefined;
     number2 = undefined;
     displayNumbers.textContent = undefined;
+}
+
+function removeLastNumber() {
+    if (displayNumbers.textContent.length > 0) {
+        const newString = displayNumbers.textContent.slice(0, -1);
+        displayNumbers.textContent = newString;
+    }
+}
+
+const numericButtons = document.querySelectorAll("#button-number");
+numericButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+        displayNum(event.target.textContent);
+    });
+});
+
+const operatorButtons = document.querySelectorAll("#button-operator");
+operatorButtons.forEach((button) => {
+    button.addEventListener("click", (event) => {
+        checkOperator(event.target.textContent);
+    });
+});
+
+const equalsButton = document.querySelector("#button-equals");
+equalsButton.addEventListener("click", () => {
+    checkResult();
+});
+
+const clearButton = document.querySelector("#button-clear");
+clearButton.addEventListener("click", () => {
+    clearCalculator();
 });
 
 document.addEventListener("keydown", (event) => {
     const key = event.key;
     switch (key) {
         case "Backspace": {
-            if (displayNumbers.textContent.length > 0) {
-                const newString = displayNumbers.textContent.slice(0, -1);
-                displayNumbers.textContent = newString;
-            }
+            removeLastNumber();
             break;
         }
         case "0":
@@ -113,28 +133,18 @@ document.addEventListener("keydown", (event) => {
         case "7":
         case "8":
         case "9": {
-            displayNumbers.textContent += key;
+            displayNum(key);
             break;
         }
         case "+":
         case "-":
         case "*":
         case "/": {
-            if (operator === undefined) {
-                number1 = parseInt(displayNumbers.textContent);
-                if (isNaN(number1)) return;
-                displayNumbers.textContent = "";
-                operator = key;
-            }
+            checkOperator(key);
             break;
         }
         case "Enter": {
-            if(displayNumbers.textContent === ""
-                || number1 === undefined
-                || operator === undefined
-            ) return;
-            number2 = parseInt(displayNumbers.textContent);
-            operate(operator, number1, number2);
+            checkResult();
         }
     }
 });
