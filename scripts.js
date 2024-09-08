@@ -44,5 +44,5 @@ const numericButtons = document.querySelectorAll("#button-number");
 numericButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
         displayNumbers.textContent += event.target.textContent;
-    })
-})
+    });
+});
