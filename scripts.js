@@ -92,3 +92,11 @@ clearButton.addEventListener("click", (event) => {
     number2 = undefined;
     displayNumbers.textContent = undefined;
 });
+
+document.addEventListener("keydown", (event) => {
+    const key = event.key;
+    if (key === "Backspace" && displayNumbers.textContent.length > 0) {
+        const newString = displayNumbers.textContent.slice(0, -1);
+        displayNumbers.textContent = newString;
+    }
+})
