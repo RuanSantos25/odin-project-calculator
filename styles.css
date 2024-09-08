@@ -46,29 +46,28 @@ body {
     width: 240px;
 }
 button {
-    box-shadow:inset 0px 1px 0px 0px #FFF6AF;
-	background:linear-gradient(to bottom, #FFEC64 5%, #FFAB23 100%);
-	background-color:#FFEC64;
-	border-radius:6px;
-	border:1px solid #FFAA22;
-	display:inline-block;
-	cursor:pointer;
-	color:#333333;
-	font-family:Arial;
-	font-size:15px;
-	font-weight:bold;
-	padding:6px 24px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #FFEE66;
+    box-shadow: inset 0px 1px 0px 0px #FFF6AF;
+	background: linear-gradient(to bottom, #FFEC64 5%, #FFAB23 100%);
+	background-color: #FFEC64;
+	border-radius: 6px;
+	border: 1px solid #FFAA22;
+	cursor: pointer;
+	color: #333333;
+	font-family: Arial;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 6px 24px;
+	text-decoration: none;
+	text-shadow: 0px 1px 0px #FFEE66;
     width: 60px;
 }
 
 button:hover {
-	background:linear-gradient(to bottom, #FFAB23 5%, #FFEC64 100%);
-	background-color:#FFAB23;
+	background: linear-gradient(to bottom, #FFAB23 5%, #FFEC64 100%);
+	background-color: #FFAB23;
 }
 
 button:active {
-	position:relative;
-	top:1px;
+	position: relative;
+	top: 1px;
 }
