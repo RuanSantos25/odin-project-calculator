@@ -116,5 +116,17 @@ document.addEventListener("keydown", (event) => {
             displayNumbers.textContent += key;
             break;
         }
+        case "+":
+        case "-":
+        case "*":
+        case "/": {
+            if (operator === undefined) {
+                number1 = parseInt(displayNumbers.textContent);
+                if (isNaN(number1)) return;
+                displayNumbers.textContent = "";
+                operator = key;
+            }
+            break;
+        }
     }
 })
