@@ -68,6 +68,7 @@ operatorButtons.forEach((button) => {
     button.addEventListener("click", (event) => {
         if (operator === undefined) {
             number1 = parseInt(displayNumbers.textContent);
+            if (isNaN(number1)) return;
             displayNumbers.textContent = "";
             operator = event.target.textContent;
         }
