@@ -45,6 +45,7 @@ body {
     flex-wrap: wrap;
     width: 240px;
 }
+
 button {
     box-shadow: inset 0px 1px 0px 0px #FFF6AF;
 	background: linear-gradient(to bottom, #FFEC64 5%, #FFAB23 100%);
