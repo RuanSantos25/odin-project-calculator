@@ -84,3 +84,11 @@ equalsButton.addEventListener("click", () => {
     number2 = parseInt(displayNumbers.textContent);
     operate(operator, number1, number2);
 });
+
+const clearButton = document.querySelector("#button-clear");
+clearButton.addEventListener("click", (event) => {
+    number1 = undefined;
+    operator = undefined;
+    number2 = undefined;
+    displayNumbers.textContent = undefined;
+});
